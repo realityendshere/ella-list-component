@@ -1,7 +1,7 @@
 {
   "name": "ella-list-component",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "List and grid components that recycle list item instances to create the illusion of displaying a seemingly infinite number of items.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,15 +11,15 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": "https://github.com/realityendshere/ella-list-component.git",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Dana Franklin",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
-    "ember-cli": "1.13.7",
+    "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.4.0",
     "ember-cli-content-security-policy": "0.4.0",
     "ember-cli-dependency-checker": "^1.0.0",
@@ -32,17 +32,28 @@
     "ember-cli-sri": "^1.0.1",
     "ember-cli-uglify": "^1.0.1",
     "ember-data": "1.13.7",
+    "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
-    "ember-disable-prototype-extensions": "^1.0.0",
-    "ember-try": "0.0.6"
+    "ember-try": "0.0.6",
+    "express": "^4.13.3",
+    "glob": "^4.5.3",
+    "morgan": "^1.6.1"
+  },
+  "dependencies": {
+    "ember-cli-babel": "^5.0.0",
+    "ember-cli-coffeescript": "^1.13.0",
+    "ember-cli-version-checker": "^1.1.4",
+    "lodash": "^3.10.1",
+    "ella-burn-ins": "0.1.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "emberella",
+    "ella",
+    "list view",
+    "grid view"
   ],
-  "dependencies": {
-    "ember-cli-babel": "^5.0.0"
-  },
   "ember-addon": {
     "configPath": "tests/dummy/config"
   }
