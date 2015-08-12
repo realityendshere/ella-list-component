@@ -1,0 +1,15 @@
+<div class='app-stage'>
+  {{#ella-list content=model as |indices|}}
+    {{#ella-list-reel}}
+      {{#each indices as |idx|}}
+        {{#ella-list-item index=idx as |content|}}
+          {{content.note}}
+        {{/ella-list-item}}
+      {{else}}
+        <div class="empty">
+          No notes to show
+        </div>
+      {{/each}}
+    {{/ella-list-reel}}
+  {{/ella-list}}
+</div>

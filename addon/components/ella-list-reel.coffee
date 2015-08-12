@@ -1,26 +1,16 @@
 `import Ember from 'ember'`
-`import StyleBindingsMixin from 'ella-burn-ins/mixins/style-bindings'`
+`import EllaListableReelMixin from 'ella-list-component/components/ella-listable-reel'`
 `import EllaListComponent from 'ella-list-component/components/ella-list'`
 
+get = Ember.get
 computed = Ember.computed
 
-EllaListReelComponent = Ember.Component.extend StyleBindingsMixin,
-  classNames: ['ella-list-reel']
-
-  styleBindings: ['height', 'width', 'position']
-
-  height: computed.oneWay 'listView.totalHeight'
-
-  width: '100%'
-
-  position: 'relative'
+EllaListReelComponent = Ember.Component.extend EllaListableReelMixin,
+  classNames: ['emberella-list-reel']
 
   listView: computed('parentView', {
     get: ->
       @nearestOfType EllaListComponent
   })
-
-
-
 
 `export default EllaListReelComponent`

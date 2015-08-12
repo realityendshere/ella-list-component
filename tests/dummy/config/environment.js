@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'script-src': "'self'",
       'font-src': "'self'", // Allow fonts to be loaded from http://fonts.gstatic.com
       'connect-src': "'self'",
-      'img-src': "'self'",
+      'img-src': "'self' 'unsafe-inline'",
       'style-src': "'self' 'unsafe-inline'", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
       'media-src': "'self'"
     }

@@ -1,7 +1,14 @@
 `import Ember from 'ember'`
-`import EllaListComponent from 'ella-list-component/components/ella-list'`
+`import EllaListableMixin from 'ella-list-component/components/ella-listable'`
 
-EllaGridComponent = EllaListComponent.extend
-  tagName: 'ella-grid'
+EllaGridComponent = Ember.Component.extend EllaListableMixin,
+  ###
+    Add the class name `emberella-grid`.
+
+    @property classNames
+    @type Array
+    @default ['emberella-grid']
+  ###
+  classNames: ['emberella-grid']
 
 `export default EllaGridComponent`
