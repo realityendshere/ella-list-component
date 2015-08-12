@@ -3,6 +3,7 @@
 `import EllaListComponent from 'ella-list-component/components/ella-list'`
 
 get = Ember.get
+typeOf = Ember.typeOf
 computed = Ember.computed
 
 EllaListItemComponent = Ember.Component.extend StyleBindingsMixin,
@@ -36,7 +37,13 @@ EllaListItemComponent = Ember.Component.extend StyleBindingsMixin,
       idx = get(@, 'contentIndex')
       listView = get(@, 'listView')
       listView
-      get(listView, 'content.' + idx)
+      listContent = get(listView, 'content')
+      if typeOf(listContent.objectAt) is 'function'
+        return listContent.objectAt(idx)
+      else if typeOf(listContent) is 'array'
+        listContent[idx]
+      else
+        null
   })
 
   startingIndex: computed.oneWay 'listView.startingIndex'

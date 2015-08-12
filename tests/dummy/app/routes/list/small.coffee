@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-TOTAL_RECORDS = 600
+TOTAL_RECORDS = 5
 
 smallArray = ->
   for i in [1..TOTAL_RECORDS]
@@ -11,7 +11,7 @@ smallArray = ->
     }
 
 
-LocalRoute = Ember.Route.extend
+SmallRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('model', model)
     @_super(controller, model)
@@ -20,4 +20,4 @@ LocalRoute = Ember.Route.extend
     smallArray()
 
 
-`export default LocalRoute`
+`export default SmallRoute`

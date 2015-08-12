@@ -46,19 +46,7 @@ EllaListComponent = Ember.Component.extend ScrollHandlerMixin, ResizeHandlerMixi
 
   hashBindings: ['yielded']
 
-  yieldedBindings: ['rowHeight', 'totalHeight', 'visibleRows', 'indices']
-
-  # ###
-  #   Specify the component class for each item listing. This must be an instance
-  #   of `EllaListItemComponent` or otherwise fully implement the content
-  #   recycling and re-positioning necessary for this incremental list view to
-  #   function as expected.
-
-  #   @property itemComponentClass
-  #   @type Ember.Component
-  #   @default EllaListItemComponent
-  # ###
-  # itemComponentClass: EllaListItemComponent
+  yieldedBindings: ['indices']
 
   ###
     Current scrolling state. True while scroll top is changing,
