@@ -52,8 +52,13 @@
     "ember-addon",
     "emberella",
     "ella",
+    "component",
+    "list",
+    "grid",
     "list view",
-    "grid view"
+    "grid view",
+    "list component",
+    "grid component"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
