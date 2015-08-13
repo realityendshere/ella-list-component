@@ -75,16 +75,16 @@ EllaListableMixin = Ember.Mixin.create(ScrollHandlerMixin, ResizeHandlerMixin, S
     A multiplier to calculate the number of extra rows to render above and
     below the portion of the list currently visible to the user.
 
-    For example, if 10 rows are visible and `visibilityBuffer` is `0.2`,
-    then 2 (10 * 0.2) bonus rows will be rendered above and below the
+    For example, if 10 rows are visible and `visibilityBuffer` is `0.1`,
+    then 2 (10 * 0.1) bonus rows will be rendered above and below the
     "stage." This potentially allows data fetching to commence just a
     little before listings become visible.
 
     @property visibilityBuffer
     @type Number
-    @default 0.2
+    @default 0.1
   ###
-  visibilityBuffer: 0.2
+  visibilityBuffer: 0.1
 
   ###
     The number of milliseconds to wait between geometry recalculations as
@@ -183,10 +183,9 @@ EllaListableMixin = Ember.Mixin.create(ScrollHandlerMixin, ResizeHandlerMixin, S
     @property indices
     @type Array
   ###
-  indices: computed('startingIndex', 'visibleRows', 'content.length', {
+  indices: computed('startingIndex', 'numberOfVisibleItems', {
     get: ->
-      visibleRows = get(@, 'visibleRows')
-      maxIdx = Math.min((visibleRows), get(@, 'content.length'))
+      maxIdx = Math.min((get(@, 'numberOfVisibleItems')), get(@, 'content.length'))
       [0...maxIdx]
   })
 
@@ -222,6 +221,11 @@ EllaListableMixin = Ember.Mixin.create(ScrollHandlerMixin, ResizeHandlerMixin, S
   visibleRows: computed('rows', 'additionalRows', {
     get: ->
       +get(@, 'rows') + (2 * get(@, 'additionalRows'))
+  })
+
+  numberOfVisibleItems: computed('visibleRows', 'content.length', {
+    get: ->
+      Math.min get(@, 'visibleRows'), get(@, 'content.length')
   })
 
   _height: computed({

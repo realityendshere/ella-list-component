@@ -10,7 +10,7 @@ EllaListableItemMixin = Ember.Mixin.create(StyleBindingsMixin, {
       @nearestWithProperty 'isEmberellaListComponent'
   })
 
-  classNameBindings: ['loading']
+  classNameBindings: ['fluctuateListingClass', 'loading']
 
   styleBindings: ['height', 'width', 'position', 'top', 'display', 'pointer-events']
 
@@ -19,6 +19,31 @@ EllaListableItemMixin = Ember.Mixin.create(StyleBindingsMixin, {
   width: '100%'
 
   position: 'absolute'
+
+  ###
+    Give each child listing an additional class name based on the child's
+    content index.
+
+    For example, setting this property to 2 will cause listings to alternate
+    between a class containing 0 or 1. (contentIndex % 2)
+
+    @property fluctuateListing
+    @type Integer
+    @default 2
+  ###
+  fluctuateListing: 2
+
+  ###
+    The seed for the fluctuated class name.
+
+    For example, setting this property to `item-listing` would result in class
+    names like `item-listing-0` and `item-listing-1`.
+
+    @property fluctuateListingPrefix
+    @type String
+    @default 'emberella-listable-item'
+  ###
+  fluctuateListingPrefix: 'emberella-listable-item'
 
   top: computed('contentIndex', 'height', {
     get: ->
@@ -60,20 +85,35 @@ EllaListableItemMixin = Ember.Mixin.create(StyleBindingsMixin, {
       get(@, 'content.isLoading') || get(@, 'content.is_loading')
   })
 
+  ###
+    Additional class name for this listing.
+
+    @property fluctuateListingClass
+    @type String
+  ###
+  fluctuateListingClass: computed('contentIndex', 'fluctuateListing', 'fluctuateListingPrefix', {
+    get: ->
+      contentIndex = get @, 'contentIndex'
+      fluctuateListing = parseInt get(@, 'fluctuateListing'), 10
+      fluctuateListingPrefix = get @, 'fluctuateListingPrefix'
+      return '' unless fluctuateListing and fluctuateListing > 0
+      [fluctuateListingPrefix, (contentIndex % fluctuateListing)].join('-')
+  })
+
   startingIndex: computed.oneWay 'listView.startingIndex'
-  visibleRows: computed.oneWay 'listView.visibleRows'
+  numberOfVisibleItems: computed.oneWay 'listView.numberOfVisibleItems'
   scrolling: computed.oneWay 'listView.scrolling'
 
-  contentIndex: computed('index', 'startingIndex', 'visibleRows', {
+  contentIndex: computed('index', 'startingIndex', 'numberOfVisibleItems', {
     get: ->
       startingIndex = get(@, 'startingIndex')
-      visibleRows = get(@, 'visibleRows')
+      numberOfVisibleItems = get(@, 'numberOfVisibleItems')
       idx = get(@, 'index')
-      mod = startingIndex % visibleRows
-      page = Math.floor(startingIndex/visibleRows)
+      mod = startingIndex % numberOfVisibleItems
+      page = Math.floor(startingIndex/numberOfVisibleItems)
       page = page + 1 if idx < mod
 
-      (page * visibleRows) + idx
+      (page * numberOfVisibleItems) + idx
   })
 
 })
