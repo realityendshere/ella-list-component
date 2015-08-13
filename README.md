@@ -1,25 +1,21 @@
-# Ella-list-component
+# Warning: This is a work in progress (WIP)
 
-This README outlines the details of collaborating on this Ember addon.
+I accept friendly pull requests and feedback.
 
-## Installation
+Also, use this addon at your own risk. It could be capable of anything, including scaring your cat (even if you don't own a cat) or burning your toast (nobody *really* likes burnt toast). Please use caution when using addons that are not yet complete.
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+# Emberella List Component
 
-## Running
+List and grid components that recycle list item instances to create the illusion of displaying a seemingly infinite number of items.
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+More info to come...
 
-## Running Tests
+# Installation
 
-* `ember test`
-* `ember test --server`
+Ember and Ember CLI are always evolving, so you may wish to verify these instructions in the Ember CLI documentation. As of this writing, you can install this addon by navigating to your project directory in the command line and entering the following:
 
-## Building
+```bash
+ember install ella-list-component
+```
 
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+This will add the Emberella List Component as a dependency to your app.
