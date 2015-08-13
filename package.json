@@ -1,6 +1,6 @@
 {
   "name": "ella-list-component",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "List and grid components that recycle list item instances to create the illusion of displaying a seemingly infinite number of items.",
   "directories": {
     "doc": "doc",
