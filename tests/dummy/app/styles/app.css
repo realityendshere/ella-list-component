@@ -24,15 +24,24 @@ body, html {
 
 .emberella-list, .emberella-grid {
   background-position: 50% 20%;
+  -webkit-scale3d(1, 1, 1);
+}
+
+.emberella-list-item, .emberella-grid-item {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .emberella-list-item {
   background-position: 2% 50%;
 }
 
-.emberella-list-item {
+.emberella-grid-item {
   background-position: 50% 30%;
 }
+
+/*.emberella-list-item-0 {
+  background-color: #EEE;
+}*/
 
 .loading .emberella-list-reel, .loading .emberella-grid-reel {
   display: none;
