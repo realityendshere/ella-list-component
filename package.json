@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",
-    "ella-sparse-array": "0.0.4",
+    "ella-sparse-array": "0.0.5",
     "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.5.0",
     "ember-cli-content-security-policy": "0.4.0",
