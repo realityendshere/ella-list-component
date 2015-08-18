@@ -1,3 +1,4 @@
+`import Ember from 'ember'`
 `import StyleBindingsMixin from 'ella-burn-ins/mixins/style-bindings'`
 
 get = Ember.get
