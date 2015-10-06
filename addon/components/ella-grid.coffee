@@ -123,10 +123,10 @@ EllaGridComponent = Ember.Component.extend EllaListableMixin,
     Compute listing dimensions after addition to DOM to ensure column widths
     are calculated and rendered correctly.
 
-    @method _didInsertElement
+    @method __didInsertElement
   ###
-  _didInsertElement: Ember.on('didInsertElement', ->
-    @adjustLayout()
+  __didInsertElement: Ember.on('didInsertElement', ->
+    Ember.run.once(@, 'adjustLayout')
   )
 
 `export default EllaGridComponent`
