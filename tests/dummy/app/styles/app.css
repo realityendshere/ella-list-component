@@ -24,7 +24,11 @@ body, html {
 
 .emberella-list, .emberella-grid {
   background-position: 50% 20%;
-  -webkit-scale3d(1, 1, 1);
+  -webkit-transform: -webkit-scale3d(1, 1, 1);
+  -moz-transform: -moz-scale3d(1, 1, 1);
+  -ms-transform: -ms-scale3d(1, 1, 1);
+  -o-transform: -o-scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
 }
 
 .emberella-list-item, .emberella-grid-item {
